@@ -1,0 +1,90 @@
+---
+title: "Stat 133 - Workout 1"
+output: github_document
+---
+```{r}
+nba <- read.csv('/Users/angelagao/Desktop/hw-stat133/workout1/data/nba-teams.csv')
+nba
+```
+
+```{r}
+a <-nba[rev(order(nba$Salary)),]
+vars <- c("Team", "Salary")
+a[vars]
+
+```
+
+```{r}
+mean(nba$Salary[1:30])
+```
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(a,aes(x= reorder(nba$Team,nba$Salary),nba$Salary))+geom_bar(stat ="identity") + coord_flip() + geom_hline(yintercept = 92.29469, col = "red")
+```
+```{r}
+b <-nba[rev(order(nba$Total.Points)),]
+vars <- c("Team", "Total.Points")
+b[vars]
+```
+```{r}
+mean(nba$Total.Points[1:30])
+```
+
+```{r}
+ggplot(b,aes(x= reorder(nba$Team,nba$Total.Points),nba$Total.Points))+geom_bar(stat ="identity") + coord_flip() + geom_hline(yintercept = 8114.4, col = "red")
+```
+
+
+```{r}
+c <-nba[rev(order(nba$Total.Points)),]
+vars <- c("Team", "Total.Points")
+c[vars]
+```
+
+```{r}
+mean(nba$Efficiency[1:30])
+```
+
+```{r}
+ggplot(c,aes(x= reorder(nba$Team,nba$Efficiency),nba$Efficiency))+geom_bar(stat ="identity") + coord_flip() + geom_hline(yintercept = 287.1759, col = "red")
+```
+```{r}
+d <-nba[rev(order(nba$Efficiency)),]
+vars <- c("Team", "Efficiency")
+d[vars]
+```
+
+
+```{r}
+mean(nba$Efficiency[1:30])
+```
+
+
+```{r}
+ggplot(d,aes(x= reorder(nba$Team,nba$Efficiency),nba$Efficiency))+geom_bar(stat ="identity") + coord_flip() + geom_hline(yintercept = 287.1759, col = "red")
+```
+Defense shows how well their defense works at blocking and stealing the ball
+```{r}
+nba$defense <- nba$Defensive.Rebounds + nba$Steals + nba$Blocks + nba$Turnovers
+
+```
+
+```{r}
+e <-nba[rev(order(nba$defense)),]
+vars <- c("Team", "defense")
+e[vars]
+```
+
+```{r}
+mean(nba$defense[1:30])
+```
+
+```{r}
+ggplot(e,aes(x= reorder(nba$Team,nba$defense),nba$defense))+geom_bar(stat ="identity") + coord_flip() + geom_hline(yintercept = 4528.5, col = "red")
+```
+
+It is my first time using file structure. It was helpful for organizing. THis is not my first time using relevant paths. They help locate files. This is my first time using script. I like the organization of chunks in R Markdown. It is still hard working with Github. It took me 3 hours to complete the assignment. 
+
